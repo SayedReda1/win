@@ -25,7 +25,8 @@ $users = $query->fetchAll(PDO::FETCH_ASSOC);
     
         <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-body-tertiary">
             <div class="col-md-6 p-lg-5 mx-auto my-5">
-                <h1 class="display-3 fw-bold mb-3">Win W1Z Sayed 🏆</h1>
+                <h1 class="display-3 fw-bold mb-4">Win W1Z Sayed 🏆</h1>
+                <h3 class="fw-normal text-muted mb-3">Enter your info to join my giveaway</h3>
                 <h3 class="fw-normal text-muted mb-3">Enter your info to join my giveaway</h3>
                 <button class="btn btn-outline-secondary">Coming Soon</button>
             </div>
@@ -37,29 +38,38 @@ $users = $query->fetchAll(PDO::FETCH_ASSOC);
         <form method="POST" action="<?= $_SERVER['PHP_SELF'] ?>">
             <h3>Please enter your details</h3>
             <div class="mb-3">
-                <label class="form-label">First name</label>
-                <input type="text" class="form-control" name="firstname" id="floatingInput" placeholder="Sayed">
+                <label for="firstname" class="form-label">First name</label>
+                <input type="text" class="form-control" name="firstname" id="firstname" placeholder="Sayed">
                 <div class="form-text error text-danger"><?= $errors["firstname"] ?? "" ?></div>
             </div>
             
             <div class="mb-3">
-                <label class="form-label">Last name</label>
-                <input type="text" class="form-control" name="lastname" id="floatingInput" placeholder="Reda">
+                <label for="lastname" class="form-label">Last name</label>
+                <input type="text" class="form-control" name="lastname" id="lastname" placeholder="Reda">
                 <div class="form-text error text-danger"><?= $errors["lastname"] ?? "" ?></div>
             </div>
             
             <div class="mb-3">
-                <label class="form-label">Email address</label>
-                <input type="email" class="form-control" name="email" id="floatingInput" placeholder="name@example.com">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com">
                 <div class="form-text error text-danger"><?= $errors["email"] ?? "" ?></div>
             </div>
             
             <input type="submit" value="Send Details" class="btn btn-primary">
         </form>
 
-        <?php foreach ($users as $user): ?>
-            <h4><?= $user['firstname'] ?></h4>
-        <?php endforeach ?>
+        <div class="row my-5 gy-3">
+            <?php foreach ($users as $user): ?>
+            <div class="col-sm-6">
+                <div class="card bg-light">
+                    <div class="card-body">
+                        <div class="card-title"><?= $user['firstname'] . " " . $user['lastname'] ?></div>
+                        <div class="card-text"><?= $user['email'] ?></div>
+                    </div>
+                </div>
+            </div>
+            <?php endforeach ?>
+        </div>
     </div>
 
     <!-- <script src="bootstrap/js/bootstrap.bundle.min.js"></script> -->
