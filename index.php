@@ -107,6 +107,7 @@ if (isset($_POST['firstname'])) {
 
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
     <script src="assets/js/loader.js"></script>
     <script src="assets/js/script.js"></script>
 </body>
