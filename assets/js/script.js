@@ -1,4 +1,4 @@
-const targetDate = new Date("Aug 19, 2025 17:51:00+3:00").getTime();
+const targetDate = new Date("Aug 19, 2025 19:08:00+3:00").getTime();
 const winnerBtn = document.querySelector("#winner-btn");
 const counter = document.querySelector("#time-counter");
 let timeInterval = null;
