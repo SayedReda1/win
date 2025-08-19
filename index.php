@@ -15,8 +15,7 @@ $users = $query->fetchAll(PDO::FETCH_ASSOC);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="bootstrap/css/bootstrap.rtl.min.css"> -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <title>Who Wins?</title>
 </head>
 
@@ -26,7 +25,7 @@ $users = $query->fetchAll(PDO::FETCH_ASSOC);
         <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-body-tertiary">
             <div class="col-md-6 p-lg-5 mx-auto my-5">
                 <h1 class="display-3 fw-bold mb-4">Win W1Z Sayed 🏆</h1>
-                <h3 class="fw-normal text-muted mb-3">Enter your info to join my giveaway</h3>
+                <h3 class="fw-normal text-muted mb-3"><span id="counter"></span></h3>
                 <h3 class="fw-normal text-muted mb-3">Enter your info to join my giveaway</h3>
                 <button class="btn btn-outline-secondary">Coming Soon</button>
             </div>
@@ -58,13 +57,13 @@ $users = $query->fetchAll(PDO::FETCH_ASSOC);
             <input type="submit" value="Send Details" class="btn btn-primary">
         </form>
 
-        <div class="row my-5 gy-3">
+        <div class="row my-3 gy-3">
             <?php foreach ($users as $user): ?>
             <div class="col-sm-6">
                 <div class="card bg-light">
                     <div class="card-body">
-                        <div class="card-title"><?= $user['firstname'] . " " . $user['lastname'] ?></div>
-                        <div class="card-text"><?= $user['email'] ?></div>
+                        <h5 class="card-title"><?= $user['firstname'] . " " . $user['lastname'] ?></h5>
+                        <p class="card-text"><?= $user['email'] ?></p>
                     </div>
                 </div>
             </div>
@@ -72,8 +71,8 @@ $users = $query->fetchAll(PDO::FETCH_ASSOC);
         </div>
     </div>
 
-    <!-- <script src="bootstrap/js/bootstrap.bundle.min.js"></script> -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 
 </html>
