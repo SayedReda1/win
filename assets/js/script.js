@@ -1,15 +1,18 @@
-const targetDate = new Date("Aug 19, 2025 12:48:00+3:00").getTime();
+const targetDate = new Date("Aug 19, 2025 17:51:00+3:00").getTime();
+const winnerBtn = document.querySelector("#winner-btn");
+const counter = document.querySelector("#time-counter");
+let timeInterval = null;
 
 const updateCounter = (targetDate) => {
-    const counter = document.querySelector("#counter");
 
     const now = new Date().getTime();
     const dist = targetDate - now;
 
-    if (dist < 0) {
-        clearInterval(this);
+    if (dist <= 0) {
+        clearTimeout(timeInterval);
         counter.classList.add("text-danger");
         counter.textContent = "TIME IS UP!";
+        winnerBtn.classList.remove("d-none");
         return;
     }
 
@@ -22,4 +25,14 @@ const updateCounter = (targetDate) => {
 }
 
 updateCounter(targetDate); // first time
-setInterval(updateCounter, 1000, targetDate);
+timeInterval = setInterval(updateCounter, 1000, targetDate);
+
+// Showing Winner
+winnerBtn.addEventListener('click', () => {
+    startProgress();
+    fetch("/win/api/winner.php")
+        .then(winner => winner.json())
+        .then(
+            winner => document.querySelector("#winner-name").textContent = winner.firstname + " " + winner.lastname
+        );
+})

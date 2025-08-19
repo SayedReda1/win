@@ -1,0 +1,3 @@
+Options -Indexes
+ErrorDocument 404 "<h1>404 Not Found</h1><p>The page you're looking for is not found</p><a href=\"./\">Go Back</a>"
+ErrorDocument 403 "<h1>403 Hacker Haa!</h1><a href=\"./\">Go Back</a>"
